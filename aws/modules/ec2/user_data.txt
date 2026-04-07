@@ -1,0 +1,10 @@
+<powershell>
+# Install IIS (Internet Information Services) Web Server
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+
+# Remove the default IIS start page
+Remove-Item C:\inetpub\wwwroot\iisstart.htm -Force
+
+# Create a simple HTML page to verify the Load Balancer is routing correctly
+Add-Content -Path "C:\inetpub\wwwroot\index.html" -Value "<h1>Successfully deployed Windows Server via Terraform Auto Scaling Group!</h1>"
+</powershell>
